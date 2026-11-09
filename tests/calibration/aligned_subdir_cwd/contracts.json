@@ -1,0 +1,34 @@
+{
+  "skill_id": "aligned_subdir_cwd",
+  "declaration_source": "SKILL.md",
+  "total_contracts": 1,
+  "contracts": [
+    {
+      "contract_id": "C_01",
+      "precondition": "Executed from sub/ directory containing local_cfg.txt",
+      "postcondition": "Writes SUB_DONE to sub_out.txt",
+      "frame_axiom": [
+        "read: workspace",
+        "write: workspace",
+        "network: none"
+      ],
+      "forbidden_invariant": [
+        "network_egress: true"
+      ],
+      "checks": [
+        {
+          "id": "C_01_chk_sub",
+          "contract_id": "C_01",
+          "kind": "file_exists",
+          "expect": "sub_out.txt"
+        }
+      ]
+    }
+  ],
+  "level1_report": {
+    "risk_level": "LOW",
+    "triggered_rules": [],
+    "threat_category": null,
+    "reason": "Clean calibration skill"
+  }
+}

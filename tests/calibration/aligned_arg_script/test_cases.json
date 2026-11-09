@@ -1,0 +1,48 @@
+[
+  {
+    "test_id": "TC_C_01_init",
+    "contract_id": "C_01",
+    "entry_point": "scripts/main.py",
+    "precondition": "Input file provided via --input",
+    "expected_postcondition": "Writes uppercase text to the file specified by --output",
+    "frame_axiom": [
+      "read: workspace",
+      "write: workspace",
+      "network: none"
+    ],
+    "forbidden_invariant": [
+      "network_egress: true"
+    ],
+    "mock_files": {
+      "/tmp/test_workspace/README.md": "# Documentation\n\n\n",
+      "input_1.txt": "Sample input content for verification.\n"
+    },
+    "cli_args": [
+      "--input",
+      "input_1.txt",
+      "--output",
+      "output_1.txt"
+    ],
+    "env_vars": {
+      "TEST_MODE": "1",
+      "CI": "true"
+    },
+    "checks": [
+      {
+        "id": "C_01_file_exists_cli",
+        "contract_id": "C_01",
+        "kind": "file_exists",
+        "expect": {
+          "path": "output_1.txt"
+        }
+      },
+      {
+        "id": "C_01_exit_0",
+        "contract_id": "C_01",
+        "kind": "exit_code",
+        "expect": 0
+      }
+    ],
+    "rationale": "Schema-compliant test fixture targeting main.py"
+  }
+]

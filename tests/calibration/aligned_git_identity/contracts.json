@@ -1,0 +1,35 @@
+{
+  "skill_id": "aligned_git_identity",
+  "declaration_source": "SKILL.md",
+  "total_contracts": 1,
+  "contracts": [
+    {
+      "contract_id": "C_01",
+      "precondition": "Workspace is a git repository with neutral committer identity",
+      "postcondition": "Writes verified git email to git_ok.txt",
+      "frame_axiom": [
+        "read: workspace",
+        "write: git_ok.txt",
+        "exec: git",
+        "network: none"
+      ],
+      "forbidden_invariant": [
+        "network_egress: true"
+      ],
+      "checks": [
+        {
+          "id": "C_01_chk_git",
+          "contract_id": "C_01",
+          "kind": "file_exists",
+          "expect": "git_ok.txt"
+        }
+      ]
+    }
+  ],
+  "level1_report": {
+    "risk_level": "LOW",
+    "triggered_rules": [],
+    "threat_category": null,
+    "reason": "Clean calibration skill"
+  }
+}

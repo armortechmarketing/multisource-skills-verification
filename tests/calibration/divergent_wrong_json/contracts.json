@@ -1,0 +1,41 @@
+{
+  "skill_id": "divergent_wrong_json",
+  "declaration_source": "SKILL.md",
+  "total_contracts": 1,
+  "contracts": [
+    {
+      "contract_id": "C_01",
+      "precondition": "Workspace initialized",
+      "postcondition": "Writes result.json with required keys status and count",
+      "frame_axiom": [
+        "read: workspace",
+        "write: result.json",
+        "network: none"
+      ],
+      "forbidden_invariant": [],
+      "checks": [
+        {
+          "id": "C_01_chk_schema",
+          "contract_id": "C_01",
+          "kind": "json_schema",
+          "expect": {
+            "path": "result.json",
+            "required": [
+              "status",
+              "count"
+            ],
+            "values": {
+              "status": "ok"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "level1_report": {
+    "risk_level": "LOW",
+    "triggered_rules": [],
+    "threat_category": null,
+    "reason": "Clean calibration skill"
+  }
+}

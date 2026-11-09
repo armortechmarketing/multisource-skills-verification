@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AGenOutputSchema",
+  "type": "object",
+  "properties": {
+    "test_cases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "test_id": {"type": "string"},
+          "contract_id": {"type": "string"},
+          "entry_point": {"type": "string"},
+          "cli_args": {"type": "array", "items": {"type": "string"}},
+          "mock_files": {"type": "object"},
+          "env_vars": {"type": "object"},
+          "checks": {"type": "array"}
+        },
+        "required": ["test_id", "contract_id"]
+      }
+    }
+  },
+  "required": ["test_cases"]
+}

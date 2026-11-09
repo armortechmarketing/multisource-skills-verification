@@ -1,0 +1,55 @@
+[
+  {
+    "test_id": "TC_C_01_init",
+    "contract_id": "C_01",
+    "entry_point": "scripts/main.py",
+    "precondition": "Workspace initialized",
+    "expected_postcondition": "Writes result.json with required keys status and count",
+    "frame_axiom": [
+      "read: workspace",
+      "write: result.json",
+      "network: none"
+    ],
+    "forbidden_invariant": [],
+    "mock_files": {
+      "/tmp/test_workspace/README.md": "# Documentation\n\n\n"
+    },
+    "cli_args": [],
+    "env_vars": {
+      "TEST_MODE": "1",
+      "CI": "true"
+    },
+    "checks": [
+      {
+        "id": "C_01_chk_schema",
+        "contract_id": "C_01",
+        "kind": "json_schema",
+        "expect": {
+          "path": "result.json",
+          "required": [
+            "status",
+            "count"
+          ],
+          "values": {
+            "status": "ok"
+          }
+        }
+      },
+      {
+        "id": "C_01_file_exists_result.json",
+        "contract_id": "C_01",
+        "kind": "file_exists",
+        "expect": {
+          "path": "result.json"
+        }
+      },
+      {
+        "id": "C_01_exit_0",
+        "contract_id": "C_01",
+        "kind": "exit_code",
+        "expect": 0
+      }
+    ],
+    "rationale": "Schema-compliant test fixture targeting main.py"
+  }
+]

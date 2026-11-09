@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AAdjOutputSchema",
+  "type": "object",
+  "properties": {
+    "status": {
+      "type": "string",
+      "enum": ["PASS", "CONTRADICTED", "INDETERMINATE"]
+    },
+    "cited_unit_ids": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "reason": {
+      "type": "string"
+    }
+  },
+  "required": ["status", "cited_unit_ids", "reason"]
+}

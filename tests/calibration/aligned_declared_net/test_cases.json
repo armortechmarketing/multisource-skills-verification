@@ -1,0 +1,38 @@
+[
+  {
+    "test_id": "TC_C_01_init",
+    "contract_id": "C_01",
+    "entry_point": "scripts/main.py",
+    "precondition": "Network access to api.example.com via sidecar",
+    "expected_postcondition": "Fetches status from api.example.com and writes net_out.json",
+    "frame_axiom": [
+      "read: workspace",
+      "write: net_out.json",
+      "network: api.example.com"
+    ],
+    "forbidden_invariant": [],
+    "mock_files": {
+      "/tmp/test_workspace/README.md": "# Documentation\n\n\n"
+    },
+    "cli_args": [],
+    "env_vars": {
+      "TEST_MODE": "1",
+      "CI": "true"
+    },
+    "checks": [
+      {
+        "id": "C_01_chk_net",
+        "contract_id": "C_01",
+        "kind": "file_exists",
+        "expect": "net_out.json"
+      },
+      {
+        "id": "C_01_exit_0",
+        "contract_id": "C_01",
+        "kind": "exit_code",
+        "expect": 0
+      }
+    ],
+    "rationale": "Schema-compliant test fixture targeting main.py"
+  }
+]

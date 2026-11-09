@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AAdjJ2OutputSchema",
+  "type": "object",
+  "properties": {
+    "status": {
+      "type": "string",
+      "enum": ["PASS", "CONTRADICTED", "INDETERMINATE"]
+    },
+    "cited_unit_ids": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "cited_outputs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["stdout", "stderr", "fs_diff"]
+      }
+    },
+    "reason": {
+      "type": "string"
+    }
+  },
+  "required": ["status", "cited_unit_ids", "reason"]
+}

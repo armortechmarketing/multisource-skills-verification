@@ -1,0 +1,38 @@
+{
+  "skill_id": "divergent_wrong_order",
+  "declaration_source": "SKILL.md",
+  "total_contracts": 1,
+  "contracts": [
+    {
+      "contract_id": "C_01",
+      "precondition": "Workspace initialized",
+      "postcondition": "Prints STEP_1, STEP_2, STEP_3 in order to stdout",
+      "frame_axiom": [
+        "read: workspace",
+        "write: workspace",
+        "network: none"
+      ],
+      "forbidden_invariant": [],
+      "checks": [
+        {
+          "id": "C_01_chk_order",
+          "contract_id": "C_01",
+          "kind": "order_check",
+          "expect": {
+            "sequence": [
+              "STEP_1",
+              "STEP_2",
+              "STEP_3"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "level1_report": {
+    "risk_level": "LOW",
+    "triggered_rules": [],
+    "threat_category": null,
+    "reason": "Clean calibration skill"
+  }
+}

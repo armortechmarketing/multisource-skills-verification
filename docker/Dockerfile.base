@@ -1,0 +1,44 @@
+# Fat base image for Harbor isolated skill execution
+FROM python:3.11-slim
+
+ENV PYTHONUNBUFFERED=1 \
+    PYTHONDONTWRITEBYTECODE=1 \
+    DEBIAN_FRONTEND=noninteractive
+
+# Install essential build tools, audit tools, telemetry, and utilities
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    bash \
+    build-essential \
+    ca-certificates \
+    coreutils \
+    curl \
+    dos2unix \
+    ffmpeg \
+    git \
+    gzip \
+    jq \
+    libpq-dev \
+    nodejs \
+    npm \
+    procps \
+    sqlite3 \
+    strace \
+    tar \
+    unzip \
+    wget \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install uv for fast, reliable package operations
+RUN pip install --no-cache-dir uv
+
+# Pre-create standard compat paths
+RUN mkdir -p /workspace /logs/artifacts /logs/verifier /logs/shims \
+    /root/AppData/Roaming/Microsoft/Windows/Start\ Menu/Programs/Startup \
+    /Users/Shared \
+    "/Library/Application Support" \
+    /root/Library/LaunchAgents \
+    /root/.config/autostart
+
+WORKDIR /workspace
+
+CMD ["/bin/bash"]

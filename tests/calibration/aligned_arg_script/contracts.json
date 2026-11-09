@@ -1,0 +1,26 @@
+{
+  "skill_id": "aligned_arg_script",
+  "declaration_source": "SKILL.md",
+  "total_contracts": 1,
+  "contracts": [
+    {
+      "contract_id": "C_01",
+      "precondition": "Input file provided via --input",
+      "postcondition": "Writes uppercase text to the file specified by --output",
+      "frame_axiom": [
+        "read: workspace",
+        "write: workspace",
+        "network: none"
+      ],
+      "forbidden_invariant": [
+        "network_egress: true"
+      ]
+    }
+  ],
+  "level1_report": {
+    "risk_level": "LOW",
+    "triggered_rules": [],
+    "threat_category": null,
+    "reason": "Clean calibration skill"
+  }
+}

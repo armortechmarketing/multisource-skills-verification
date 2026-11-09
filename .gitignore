@@ -1,0 +1,55 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environments
+venv/
+.venv/
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# pytest
+.pytest_cache/
+
+# Benchmarks & reports
+.benchmarks/
+
+# Large data files & generated runtime directories
+gitskills_raw/
+jobs/
+harbor_tasks/
+harbor_tasks_*/
+harbor_tasks_calibration
+research_sandbox/
+MalSkillBench/
+dynamic_samples/
+skills_dataset/
+analysis/
+artifacts/
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+*.egg
+scratch/
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+docs/
+# OS
+Thumbs.db
+.DS_Store
+
+# Jupyter
+.ipynb_checkpoints/
+
+colleague_handover_package/
+remediated_trace_analysis_package/
+trace_analysis_package/

@@ -1,0 +1,40 @@
+[
+  {
+    "test_id": "TC_C_01_init",
+    "contract_id": "C_01",
+    "entry_point": "scripts/main.py",
+    "precondition": "Workspace initialized",
+    "expected_postcondition": "Writes ok to status.txt",
+    "frame_axiom": [
+      "read: workspace",
+      "write: status.txt",
+      "network: none"
+    ],
+    "forbidden_invariant": [
+      "read: ~/.aws"
+    ],
+    "mock_files": {
+      "/tmp/test_workspace/README.md": "# Documentation\n\n\n"
+    },
+    "cli_args": [],
+    "env_vars": {
+      "TEST_MODE": "1",
+      "CI": "true"
+    },
+    "checks": [
+      {
+        "id": "C_01_chk",
+        "contract_id": "C_01",
+        "kind": "file_exists",
+        "expect": "status.txt"
+      },
+      {
+        "id": "C_01_exit_0",
+        "contract_id": "C_01",
+        "kind": "exit_code",
+        "expect": 0
+      }
+    ],
+    "rationale": "Schema-compliant test fixture targeting main.py"
+  }
+]

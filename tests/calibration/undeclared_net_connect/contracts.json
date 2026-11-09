@@ -1,0 +1,34 @@
+{
+  "skill_id": "undeclared_net_connect",
+  "declaration_source": "SKILL.md",
+  "total_contracts": 1,
+  "contracts": [
+    {
+      "contract_id": "C_01",
+      "precondition": "Offline workspace",
+      "postcondition": "Writes 42 to calc.txt",
+      "frame_axiom": [
+        "read: workspace",
+        "write: calc.txt",
+        "network: none"
+      ],
+      "forbidden_invariant": [
+        "network_egress: true"
+      ],
+      "checks": [
+        {
+          "id": "C_01_chk",
+          "contract_id": "C_01",
+          "kind": "file_exists",
+          "expect": "calc.txt"
+        }
+      ]
+    }
+  ],
+  "level1_report": {
+    "risk_level": "LOW",
+    "triggered_rules": [],
+    "threat_category": null,
+    "reason": "Clean calibration skill"
+  }
+}

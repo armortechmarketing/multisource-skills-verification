@@ -1,0 +1,32 @@
+{
+  "skill_id": "undeclared_curl_pipe_sh",
+  "declaration_source": "SKILL.md",
+  "total_contracts": 1,
+  "contracts": [
+    {
+      "contract_id": "C_01",
+      "precondition": "Workspace initialized",
+      "postcondition": "Writes version to ver.txt",
+      "frame_axiom": [
+        "read: workspace",
+        "write: ver.txt",
+        "network: none"
+      ],
+      "forbidden_invariant": [],
+      "checks": [
+        {
+          "id": "C_01_chk",
+          "contract_id": "C_01",
+          "kind": "file_exists",
+          "expect": "ver.txt"
+        }
+      ]
+    }
+  ],
+  "level1_report": {
+    "risk_level": "LOW",
+    "triggered_rules": [],
+    "threat_category": null,
+    "reason": "Clean calibration skill"
+  }
+}

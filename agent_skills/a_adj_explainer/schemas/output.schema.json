@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AAdjExplainerOutputSchema",
+  "type": "object",
+  "properties": {
+    "headline": {
+      "type": "string",
+      "description": "One-line summary headline of the verdict"
+    },
+    "verdict": {
+      "type": "string",
+      "description": "Deterministic canonical verdict reached"
+    },
+    "summary": {
+      "type": "string",
+      "description": "Objective summary of the evaluation findings"
+    },
+    "limitations": {
+      "type": "string",
+      "description": "Operational limitations (e.g. low coverage, unattributed events, etc.)"
+    },
+    "llm_narrative": {
+      "type": "string",
+      "description": "Detailed explanation of findings"
+    }
+  },
+  "required": ["headline", "verdict", "summary"]
+}

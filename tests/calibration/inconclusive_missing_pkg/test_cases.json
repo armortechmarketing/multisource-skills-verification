@@ -1,0 +1,32 @@
+[
+  {
+    "test_id": "TC_C_01_init",
+    "contract_id": "C_01",
+    "entry_point": "scripts/main.py",
+    "precondition": "Third-party package installed",
+    "expected_postcondition": "Prints ok",
+    "frame_axiom": [
+      "read: workspace",
+      "write: workspace",
+      "network: none"
+    ],
+    "forbidden_invariant": [],
+    "mock_files": {
+      "/tmp/test_workspace/README.md": "# Documentation\n\n\n"
+    },
+    "cli_args": [],
+    "env_vars": {
+      "TEST_MODE": "1",
+      "CI": "true"
+    },
+    "checks": [
+      {
+        "id": "C_01_exit_0",
+        "contract_id": "C_01",
+        "kind": "exit_code",
+        "expect": 0
+      }
+    ],
+    "rationale": "Schema-compliant test fixture targeting main.py"
+  }
+]

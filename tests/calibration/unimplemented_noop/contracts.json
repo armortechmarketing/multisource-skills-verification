@@ -1,0 +1,32 @@
+{
+  "skill_id": "unimplemented_noop",
+  "declaration_source": "SKILL.md",
+  "total_contracts": 1,
+  "contracts": [
+    {
+      "contract_id": "C_01",
+      "precondition": "Workspace initialized",
+      "postcondition": "Generates manifest.json in the workspace",
+      "frame_axiom": [
+        "read: workspace",
+        "write: manifest.json",
+        "network: none"
+      ],
+      "forbidden_invariant": [],
+      "checks": [
+        {
+          "id": "C_01_chk",
+          "contract_id": "C_01",
+          "kind": "file_exists",
+          "expect": "manifest.json"
+        }
+      ]
+    }
+  ],
+  "level1_report": {
+    "risk_level": "LOW",
+    "triggered_rules": [],
+    "threat_category": null,
+    "reason": "Clean calibration skill"
+  }
+}

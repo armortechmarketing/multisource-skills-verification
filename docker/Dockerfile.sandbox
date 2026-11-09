@@ -1,0 +1,30 @@
+# Dockerfile for isolated Skill Execution Sandbox
+FROM python:3.11-slim
+
+# Prevent python from buffering stdout/stderr and writing .pyc
+ENV PYTHONUNBUFFERED=1 \
+    PYTHONDONTWRITEBYTECODE=1 \
+    DEBIAN_FRONTEND=noninteractive
+
+# Install minimal system tools and baseline dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    bash \
+    ca-certificates \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install common libraries needed across benchmark skills
+RUN pip install --no-cache-dir \
+    requests \
+    urllib3
+
+# Setup non-privileged sandbox user
+RUN useradd -m -u 1000 -s /bin/bash sandboxuser
+
+# Create workspace directory
+RUN mkdir -p /workspace && chown sandboxuser:sandboxuser /workspace
+
+WORKDIR /workspace
+USER sandboxuser
+
+CMD ["python3", "--version"]

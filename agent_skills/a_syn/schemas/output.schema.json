@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ASynOutputSchema",
+  "type": "object",
+  "properties": {
+    "contracts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "contract_id": {"type": "string"},
+          "precondition": {"type": "string"},
+          "postcondition": {"type": "string"},
+          "frame_axiom": {
+            "type": ["array", "object"],
+            "items": {"type": "string"}
+          },
+          "forbidden_invariants": {
+            "type": "array",
+            "items": {"type": "string"}
+          },
+          "testable": {"type": "boolean"},
+          "expects_effect": {"type": "boolean"}
+        },
+        "required": ["contract_id", "precondition", "postcondition", "testable", "expects_effect"]
+      }
+    }
+  },
+  "required": ["contracts"]
+}

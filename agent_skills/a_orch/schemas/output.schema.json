@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AOrchOutputSchema",
+  "type": "object",
+  "properties": {
+    "tool": {
+      "type": "string",
+      "enum": [
+        "run_tests",
+        "refine_tests",
+        "escalate_static",
+        "request_canary_recheck",
+        "finalize_verdict"
+      ]
+    },
+    "reason": {
+      "type": "string"
+    }
+  },
+  "required": ["tool", "reason"]
+}
