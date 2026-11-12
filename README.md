@@ -183,6 +183,12 @@ When the pipeline cannot reach a definitive verdict, `Inconclusive` is emitted w
 
 Adjudication also records `failure_class` (from `src/failure_classifier.py`) and per-contract `exercise_reason` when a contract is demoted to `NOT_EXERCISED` due to invalid exercise.
 
+### 7.3 Example distributions
+
+![Canonical verdict counts: 30 skills, skill-crash dominant (Aligned 2, Blocked_Static_CRITICAL 8, Inconclusive SKILL_CRASH 11)](figures/Canonical_1.jpeg)
+
+![Canonical verdict counts: 30 skills, infrastructure and coverage dominant (Aligned 1, Blocked_Static_CRITICAL 7, Inconclusive INFRA 12, LOW_COVERAGE 6, TELEMETRY_GAP 3)](figures/Canonical_2.jpeg)
+
 ---
 
 ## 8. Limitations
